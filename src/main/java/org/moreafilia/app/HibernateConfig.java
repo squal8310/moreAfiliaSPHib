@@ -30,11 +30,7 @@ public class HibernateConfig {
 	public LocalSessionFactoryBean getSessionFactory() {
 		LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
 		factoryBean.setConfigLocation(context.getResource("classpath:hibernate.cfg.xml"));
-		factoryBean.getConfiguration().addAnnotatedClass(org.moreafilia.app.model.Afiliacion.class);
-		factoryBean.getConfiguration().addAnnotatedClass(org.moreafilia.app.model.Elector.class);
-		factoryBean.getConfiguration().addAnnotatedClass(org.moreafilia.app.model.Persona.class);
-		factoryBean.getConfiguration().addAnnotatedClass(org.moreafilia.app.model.Contacto.class);
-		factoryBean.getConfiguration().addAnnotatedClass(org.moreafilia.app.model.Domicilio.class);
+		factoryBean.setPackagesToScan("org.moreafilia.app.model");
 //		factoryBean.setAnnotatedClasses(Afiliacion.class,Elector.class,Persona.class,Contacto.class,Domicilio.class);
 		
 		return factoryBean;
